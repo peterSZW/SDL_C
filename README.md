@@ -4,6 +4,8 @@
 
 ```
  -static-libgcc -lmingw32 -lSDL2main -lSDL2
+ -static-libgcc -lmingw32 -lSDL2main -lSDL2 -lSDL2_test 
+ -lSDL2_image -lSDL2_ttf -lSDL2_gfx
 ```
 
 ### Directories -> C Include 
