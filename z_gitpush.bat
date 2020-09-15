@@ -1,4 +1,5 @@
 git add *.go
+git add *.c
 git add *.py
 git add *.bat
 git add *.sql
