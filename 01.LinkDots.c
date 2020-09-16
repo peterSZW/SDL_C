@@ -22,6 +22,23 @@ int Append(struct Tdot *data) {
 		tail=data;
 	}
 }
+int FreeAll() {
+	struct Tdot *cur ;
+    struct Tdot *tmp ;
+    
+    for(cur=tail;  ;) {
+        printf("TO FREE (%p,%p,%d,%d,%p)\n",cur,cur->pre,cur->x,cur->y,cur->next );
+		tmp = cur->pre ; 
+		if (cur->pre ==0) {
+			free(cur);
+        	break;
+		} else {
+			free(cur);
+			cur=tmp; 
+		} 
+		
+    }
+}
 
 int main(int argc, char *argv[])
 {   
@@ -38,9 +55,13 @@ int main(int argc, char *argv[])
 	
     struct Tdot *cur ;
     
-    for(cur=head;cur->next != 0 ;cur = cur->next) {
-        printf("(%p,%p,%d,%d,%p)\n",cur,cur->pre,cur->x,cur->y,cur->next );
+    for(cur=head; ;cur = cur->next) {
+        printf("LIST (%p,%p,%d,%d,%p)\n",cur,cur->pre,cur->x,cur->y,cur->next );
+        if (cur->next ==0) {
+        	break;
+		}
     }
+    FreeAll();
 
     return 0;
 }
